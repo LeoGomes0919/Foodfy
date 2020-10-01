@@ -9,8 +9,6 @@
 <p align="center">
    <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/LeoGomes0919/Foodfy">
   
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/LeoGomes0919/Foodfy">
-  
   <a href="https://github.com/LeoGomes0919/Foodfy/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/LeoGomes0919/Foodfy">
   </a>
