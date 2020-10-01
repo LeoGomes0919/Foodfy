@@ -6,7 +6,7 @@
   "author": "Leonardo Gomes",
   "license": "MIT",
   "scripts": {
-    "start": "node src/server"
+    "start": "node src/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
