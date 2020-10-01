@@ -1,0 +1,34 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}  
+  <title>Foodfy | Editando usuário</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">person_outline</i>
+    Editando Usuário
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  <div class="dropdown" onclick="VeritcalMenuOptions.handleActive()">
+      <i class="material-icons">more_vert</i>
+    <div class="container-actions">
+      {% if user.id != session.userId %}
+      <button type="submit" class="button red" form="user-form-delete">Deletar</button>
+      {% endif %}
+      <button type="submit" class="button primary" form="user-form-edit">Salvar</button>
+    </div>
+  </div>
+{% endblock contentActions %}
+
+{% block content %}
+  <form action="/dashboard/users?_method=PUT" id="user-form-edit" method="post">
+    {% include 'dashboard/users/parts/fields.njk'%}
+  </form>
+
+  <form action="/dashboard/users?_method=DELETE" method="post" id="user-form-delete">
+    <input type="hidden" name="id" value="{{user.id}}">
+  </form>
+{% endblock content %}

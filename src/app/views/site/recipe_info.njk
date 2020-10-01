@@ -1,0 +1,70 @@
+{% extends 'site/layout.njk' %}
+
+{% block head %}
+  <title>Dashboard |
+    {{recipe.title}}</title>
+{% endblock head %}
+
+{% block content %}
+  <article class="recipe-info">
+    <header>
+      <img 
+        src="{{image}}"
+        alt="{{recipe.title}}"
+        title="{{recipe.title}}"
+      >
+    </header>
+    <div class="recipe-gallery">
+      {% for file in recipe.files %}
+        <img 
+          src="{{file.path.replace('public', '')}}" 
+          alt="{{file.name}}" 
+          title="Ampliar imagem." 
+          {% if loop.index0 == 0 %} class="active" {% endif %} 
+          onclick="ImageGallery.setImage(event);"
+        >
+      {% endfor %}
+    </div>
+    <div class="recipe-details">
+      <h2>{{recipe.title}}</h2>
+      <span>por
+        {{recipe.chefs.name}}</span>
+    </div>
+  </article>
+
+  <div class="recipe-contenet-info">
+    <article class="content-ingredients recipe-detail">
+      <header>
+        <h3>Ingredientes</h3>
+        <span id="action-recipe" class="ingredients">ESCONDER</span>
+      </header>
+      <div class="content">
+        {% for ingredient in recipe.ingredients %}
+          <p>- {{ingredient}}</p>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="content-preparation recipe-detail">
+      <header>
+        <h3>Modo de preparo</h3>
+        <span id="action-recipe" class="preparation">ESCONDER</span>
+      </header>
+      <div class="content">
+        {% for preparation in recipe.preparation %}
+          <p>- {{preparation}}</p>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="content-information recipe-detail">
+      <header>
+        <h3>Informações adicionais</h3>
+        <span id="action-recipe" class="information">ESCONDER</span>
+      </header>
+      <div class="content">
+        <p>{{recipe.information}}</p>
+      </div>
+    </article>
+  </div>
+{% endblock content %}

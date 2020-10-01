@@ -1,0 +1,64 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Dashboard |
+    {{chef.name}}</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">assignment_ind</i>
+    Chef:
+    {{chef.name}}
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  {% if session.isAdmin %}
+    <a href="/dashboard/chefs/{{chef.id}}/edit" class="button primary">
+      Editar chef
+    </a>
+  {% endif %}
+{% endblock contentActions %}
+
+{% block content %}
+  <article class="chef-info">
+    <header>
+      <img 
+        src="{{chef.files.path.replace('public', '')}}" 
+        alt="{{chef.name}}" 
+        title="{{chef.name}}"
+      >
+    </header>
+    <div class="chef-details">
+      <h2>{{chef.name}}</h2>
+      <span>
+        {% if total > 1 %}
+          {{total}} receitas
+          {%else%}
+          {{total}} receita
+        {% endif %}
+      </span>
+    </div>
+  </article>
+
+  <div class="chef-recipes">
+    <header>
+      <h2>Receitas</h2>
+    </header>
+    {% for recipe in recipes %}
+      <article class="card-dash-recipe">
+        <img 
+          src="{{recipe.files[0].path.replace('public', '')}}" 
+          alt="{{recipe.title}}" 
+          title="{{recipe.title}}"
+        >
+        <div class="card-recipe-details">
+          <h2>{{recipe.title}}</h2>
+          <span>por {{recipe.chefs.name}}</span>
+          <a href="/dashboard/recipes/{{recipe.id}}" class="view-recipe">Visualizar</a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+{% endblock content %}

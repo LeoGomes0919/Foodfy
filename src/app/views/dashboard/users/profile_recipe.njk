@@ -1,0 +1,57 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Dashboard | Minhas receitas</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>Minhas receitas</h1>
+{% endblock contentHeader %}
+
+{% block content %}
+  <article class="user-info">
+    <header>
+      <div class="avatar-user">
+        <i class="material-icons">account_circle</i>
+      </div>
+    </header>
+    <div class="user-details">
+      <h2>{{user.name}}</h2>
+      <span>
+        {% if total > 1 %}
+          {{total}}
+          receitas
+          {%else%}
+          {{total}}
+          receita
+        {% endif %}
+      </span>
+    </div>
+  </article>
+
+  <div class="chef-recipes">
+    <header>
+      <h2>Receitas</h2>
+    </header>
+    {% if recipes.length <= 0 %}
+      <div class="message-isempty">
+        <span>
+          Você não possui receitas cadastradas...
+          <i class="material-icons">edit</i>
+        </span>
+      </div>
+    {% else %}
+      {% for recipe in recipes %}
+        <article class="card-dash-recipe">
+          <img src="{{recipe.files[0].path.replace('public', '')}}" alt="{{recipe.title}}" title="{{recipe.title}}">
+          <div class="card-recipe-details">
+            <h2>{{recipe.title}}</h2>
+            <span>por
+              {{recipe.chefs.name}}</span>
+            <a href="/dashboard/recipes/{{recipe.id}}" class="view-recipe">Visualizar</a>
+          </div>
+        </article>
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endblock content %}

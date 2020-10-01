@@ -1,0 +1,72 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Dashboard |
+    {{recipe.title}}</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">content_paste</i>
+    Receita:
+    {{recipe.title}}
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  {% if recipe.users.id == session.userId %}
+    <a href="/dashboard/recipes/{{recipe.id}}/edit" class="button primary">Editar receita</a>
+  {% endif %}
+{% endblock contentActions %}
+
+{% block content %}
+  <article class="recipe-info">
+    <header>
+      <img 
+        src="{{image}}" 
+        alt="{{recipe.title}}" 
+        title="{{recipe.title}}"
+      >
+    </header>
+    <div class="recipe-gallery">
+      {% for file in recipe.files %}
+        <img 
+          src="{{file.path.replace('public', '')}}" 
+          alt="{{file.name}}" 
+          title="Ampliar imagem." 
+          {% if loop.index0 == 0 %} class="active" {% endif %} 
+          onclick="ImageGallery.setImage(event);"
+        >
+      {% endfor %}
+    </div>
+    <div class="recipe-details">
+      <h2>{{recipe.title}}</h2>
+      <span>por {{recipe.chefs.name}}</span>
+    </div>
+  </article>
+
+  <div class="recipe-contenet-info">
+    <article class="content-ingredients recipe-detail">
+      <header>
+        <h3>Ingredientes</h3>
+      </header>
+      {% for ingredient in recipe.ingredients %}
+        <p>- {{ingredient}}</p>
+      {% endfor %}
+    </article>
+    <article class="content-preparation recipe-detail">
+      <header>
+        <h3>Modo de preparo</h3>
+      </header>
+      {% for preparation in recipe.preparation %}
+        <p>- {{preparation}}</p>
+      {% endfor %}
+    </article>
+    <article class="content-information recipe-detail">
+      <header>
+        <h3>Informações adicionais</h3>
+      </header>
+      <p>{{recipe.information}}</p>
+    </article>
+  </div>
+{% endblock content %}

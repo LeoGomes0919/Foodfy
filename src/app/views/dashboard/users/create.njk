@@ -1,0 +1,28 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Dashboard | Novo usuário</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">person_add</i>
+    Criando Usuário
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  <div class="dropdown" onclick="VeritcalMenuOptions.handleActive()">
+    <i class="material-icons">more_vert</i>
+    <div class="container-actions">
+      <button type="submit" class="button primary" form="user-form">Salvar</button>
+      <a href="/dashboard/users" class="button secondary">Cancelar</a>
+    </div>
+  </div>
+{% endblock contentActions %}
+
+{% block content %}
+  <form action="/dashboard/users" method="post" id="user-form">
+    {% include 'dashboard/users/parts/fields.njk' %}
+  </form>
+{% endblock content %}

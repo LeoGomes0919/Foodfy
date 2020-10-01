@@ -1,0 +1,216 @@
+<input type="hidden" value="{{recipe.id}}" name="id">
+<div class="form-container-recipe">
+  <div class="form-group">
+    <label>Imagem da receita</label>
+    <div class="upload">
+      <div class="photos-upload">
+        <input 
+          type="file" 
+          name="image" 
+          id="photo-input" 
+          multiple="multiple" 
+          accept="image/*" 
+          onchange="PhotosUpload.handleFileInput(event)"
+        >
+        <div class="button-upload">
+          <i class="material-icons">add_photo_alternate</i>
+        </div>
+      </div>
+      <div class="photos-preview">
+        {% if recipe.files %}
+          {% for file in recipe.files %}
+            <div class="photo" id="{{file.id}}">
+              <img src="{{file.path.replace('public','')}}" 
+                alt="{{recipe.title}}" 
+                title="{{recipe.title}}"
+              >
+              <i 
+                class="material-icons"
+                onclick="PhotosUpload.removeOldPhoto(event);"
+              >
+                close
+              </i>
+            </div>
+          {% endfor %}
+          <input type="hidden" name="removed_files">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="title">Título da receita</label>
+    <input 
+      type="text" 
+      name="title" 
+      id="title" 
+      class="input" 
+      value="{{recipe.title}}"
+      placeholder="Informe o título da receita"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="input_chef">Chef</label>
+    <div class="select-box">
+      <input 
+        type="text" 
+        name="input_chef" 
+        class="input select" 
+        id="input_chef" 
+        title="Clique para selecionar um chef" 
+        readonly="readonly" 
+        value="{{recipe.chefs.name}}"
+        placeholder="Selecione um chef" 
+        onclick="FilterChefsRecipe.handelActiveContainerSelectBox()"
+      >
+      <input 
+        readonly="readonly" 
+        type="hidden" 
+        name="chef_id" 
+        id="id_chef"
+        value="{{recipe.chefs.id}}"
+      >
+      <div class="select-container-list hidden" id="list">
+        <div class="content-filter">
+          <input 
+            type="text" 
+            id="filter" 
+            placeholder="Pesquisar por Nome" 
+            autocomplete="off" 
+            class="input" 
+            onkeyup="FilterChefsRecipe.handleFilterChef();"
+          >
+          {% if session.isAdmin %}
+            <a 
+              href="/dashboard/chefs/create"
+              class="button primary open-modal" 
+              id="more-chef" 
+              title="Cadastrar Chef"
+            >
+              <i class="material-icons">assignment_ind</i>
+            </a>
+          {% endif %}
+        </div>
+        <ul class="list-item">
+          {% for chef in chefs %}
+            <option value="{{chef.id}}" class="item">
+              <span>{{chef.name}}</span>
+            </option>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group" id="ingredients">
+    <label for="ingredients">Ingredientes</label>
+    {% if recipe %}
+      {% for ingredients in recipe.ingredients %}
+        <div class="field-ingredients">
+          <input 
+            type="text" 
+            autocomplete="off" 
+            name="ingredients[]" 
+            class="input"
+            value="{{ingredients}}" 
+            placeholder="Informe os ingredientes"
+          >
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="field-ingredients">
+        <input 
+          type="text" 
+          autocomplete="off" 
+          name="ingredients[]" 
+          class="input"
+          placeholder="Informe os ingredientes"
+        >
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="btn-more-input">
+    <button 
+      type="button" 
+      id="actions" 
+      class="btn-action-form-recipe add-ingredient" 
+      title="Adicionar ingredientes"
+    >
+      Adicionar novo ingrediente
+    </button>
+    <button 
+      class="btn-action-form-recipe action-red rem-ingredient" 
+      type="button" 
+      id="remove" 
+      title="Remover ingredientes"
+      style="{% if recipe.ingredients.length > 1 %}
+        visibility: visible;
+      {% endif %}"
+    >
+      Remover
+    </button>
+  </div>
+
+  <div class="form-group" id="preparation">
+    <label for="preparation">Modo de preparo</label>
+    {% if recipe %}
+      {% for preparation in recipe.preparation %}
+        <div class="field-preparation">
+          <input 
+            type="text" 
+            class="input" 
+            autocomplete="off" 
+            name="preparation[]"
+            value="{{preparation}}"
+            placeholder="Informe o modo de preparo"
+          >
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="field-preparation">
+        <input 
+          type="text" 
+          class="input" 
+          autocomplete="off" 
+          name="preparation[]"
+          placeholder="Informe o modo de preparo"
+        >
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="btn-more-input">
+    <button 
+      id="actions" 
+      class="btn-action-form-recipe add-preparation" 
+      type="button" 
+      title="adicionar passo"
+    >
+      Adicionar novo passo
+    </button>
+    <button 
+      class="btn-action-form-recipe action-red rem-preparation" 
+      id="remove" 
+      type="button" 
+      title="Remover passo"
+      style="{% if recipe.preparation.length > 1 %}
+        visibility: visible;
+      {% endif %}"
+    >
+      Remover
+    </button>
+  </div>
+
+  <div class="form-group">
+    <label class="label" for="information">Informações adicionais</label>
+    <textarea 
+      class="input textarea" 
+      type="text" 
+      name="information" 
+      id="information" 
+      placeholder="Informações adicionais" 
+      rows="6">{{recipe.information}}</textarea>
+  </div>
+</div>

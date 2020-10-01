@@ -1,0 +1,23 @@
+<input type="hidden" name="id" value="{{ chef.id }}" />
+<div class="form-container-chef">
+  <div class="form-group">
+    <label for="name">Nome</label>
+    <input type="text" name="name" id="name" value="{{chef.name}}" class="input" placeholder="Nome do chef">
+  </div>
+
+  <div class="form-group upload-chef">
+    <label for="avatar">Avatar</label>
+    {% if chef.files %}
+      <input type="hidden" name="id_file" value="{{chef.files.id}}">
+      <ol class="input preview-edit-avatar" id="{{chef.files.id}}">
+        <li>{{chef.files.name}}</li>
+        <li>
+          <img src="{{chef.files.path.replace('public', '')}}" alt="{{chef.name}}">
+        </li>
+      </ol>
+    {% endif %}
+    <input type="file" class="input-file-chef" name="avatar" id="avatar" accept="image/*" onchange="PreviewAvatarChef.handleFile(this)">
+    <span>Enviar avatar</span>
+  </div>
+  <div class="form-group" id="preview-chef"></div>
+</div>

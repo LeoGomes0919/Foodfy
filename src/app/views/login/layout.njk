@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/_cdn/css/reset.css">
+    <link rel="stylesheet" href="/_cdn/css/login.css">
+    <link rel="stylesheet" href="/_cdn/css/site.css">
+    <link rel="stylesheet" href="/_cdn/css/styles.css">
+    <link rel="stylesheet" href="/_cdn/css/forms.css">
+    <link rel="stylesheet" href="/_cdn/css/messages.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    {% block head %}
+      <title>Foodfy | Login</title>
+    {% endblock head %}
+  </head>
+  <body>
+    {% include 'parts/message.njk' %}
+    <div class="site-container">
+      <header class="login-header">
+       <a href="/">
+         <img src="/assets/images/logo.png" alt="Logo" title="Logo">
+       </a>
+      </header>
+      <main class="container-login">
+        <header>
+          {% block headerAuth %}{% endblock headerAuth %}
+        </header>
+
+        {% block contentAuth %}{% endblock contentAuth %}
+      </main>
+    </div>
+    <footer>
+      <span>Todos os direitos reservados, receitas Foodfy</span>
+    </footer>
+    <script src="/_cdn/js/scripts.js"></script>
+  </body>
+</html>

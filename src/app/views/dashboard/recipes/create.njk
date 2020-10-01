@@ -1,0 +1,22 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Dashboard | Nova receita</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">post_add</i>
+    Criando Receita
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  <button type="submit" class="button primary" form="recipe-form">Salvar</button>
+{% endblock contentActions %}
+
+{% block content %}
+  <form action="/dashboard/recipes" method="post" id="recipe-form" enctype="multipart/form-data">
+   {% include 'dashboard/recipes/parts/fields.njk' %}
+  </form>
+{% endblock content %}

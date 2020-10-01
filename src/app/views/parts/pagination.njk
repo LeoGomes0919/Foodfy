@@ -1,0 +1,8 @@
+{% if pagination.total <= 1 %}
+{% else %}
+  <div 
+    class="pagination"
+    data-page={{pagination.page}}
+    data-total={{pagination.total}}
+    data-filter={{q}}></div>
+{% endif %}

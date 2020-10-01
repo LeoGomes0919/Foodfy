@@ -1,0 +1,43 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Dashboard | Receitas</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">content_paste</i>
+    Gerenciar Receitas
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  <a href="/dashboard/recipes/create" class="button primary">Nova</a>
+{% endblock contentActions %}
+
+{% block pagination %}
+  {% include 'parts/pagination.njk' %}
+{% endblock pagination %}
+
+{% block content %}
+  {% if recipes.length <= 0 %}
+    <div class="message-isempty">
+      <span>
+        Ainda não há receitas cadastradas...
+        <i class="material-icons">edit</i>
+      </span>
+    </div>
+  {% else %}
+    {% for recipe in recipes %}
+      <article class="card-dash-recipe">
+        <img src="{{recipe.files[0].path.replace('public', '')}}" alt="{{recipe.title}}" title="{{recipe.title}}">
+        <div class="card-recipe-details">
+          <h2>{{recipe.title}}</h2>
+          <span>por
+            {{recipe.chefs.name}}</span>
+          <a href="/dashboard/recipes/{{recipe.id}}" class="view-recipe">Visualizar</a>
+        </div>
+      </article>
+    {% endfor %}
+  {% endif %}
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Foodfy | Editando receita</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">description</i>
+    Editando Receita
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  <div class="dropdown" onclick="VeritcalMenuOptions.handleActive()">
+        <i class="material-icons">more_vert</i>
+    <div class="container-actions">
+      <button type="submit" class="button red" form="recipe-form-delete">Deletar</button>
+      <button type="submit" class="button primary" form="recipe-form-update">Salvar</button>
+    </div>
+  </div>
+{% endblock contentActions %}
+
+{% block content %}
+  <form 
+    action="/dashboard/recipes?_method=PUT" 
+    method="post"
+    enctype="multipart/form-data"
+    id="recipe-form-update"
+  >
+    {% include  'dashboard/recipes/parts/fields.njk' %}
+  </form>
+
+  <form 
+    action="/dashboard/recipes?_method=DELETE" 
+    method="post"
+    id="recipe-form-delete"
+  >
+  <input type="hidden" name="id" value="{{recipe.id}}">
+  </form>
+{% endblock content %}

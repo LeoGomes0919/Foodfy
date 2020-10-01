@@ -1,0 +1,50 @@
+{% extends 'login/layout.njk' %}
+
+{% block head %}
+  <title>Foodfy | Login</title>
+{% endblock head %}
+
+{% block headerAuth %}
+  <h1>Iniciar Sessão</h1>
+{% endblock headerAuth %}
+
+{% block contentAuth %}
+  <form action="/login" method="post">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input 
+        type="email" 
+        class="input {% if error %}
+          border-error-red
+        {% endif %}" 
+        name="email" 
+        id="email"
+        value="{{user.email}}" 
+        autofocus
+        placeholder="Informe seu email"
+      >
+    </div>
+    <div class="form-group password-container">
+      <label for="password">Senha</label>
+      <input 
+        type="password" 
+        class="input password {% if error %}
+          border-error-red
+        {% endif %}" 
+        name="password" 
+        id="password" 
+        placeholder="Informe sua senha"
+      >
+      <i 
+        class="material-icons show-hidden-password" 
+        onclick="VisibilityAndHiddenPassword.handleClickIconInput()"
+      >
+        visibility
+      </i>
+    </div>
+    <div class="form-group options-login">
+      <a href="/login/forget-password">Perdeu a senha</a>
+      <button type="submit" class="button primary">Acessar</button>
+    </div>
+  </form>
+{% endblock contentAuth %}

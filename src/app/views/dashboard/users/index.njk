@@ -1,0 +1,87 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Dashboard | Usuários</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">supervised_user_circle</i>
+    Gerenciar Usuários
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  <a href="/dashboard/users/create" class="button primary">Novo</a>
+{% endblock contentActions %}
+
+{% block content %}
+  {% if users.length <= 0 %}
+    <div class="message-isempty">
+      <span>
+        Ainda não há usuários cadastrados...
+        <i class="material-icons">edit</i>
+      </span>
+    </div>
+  {% else %}
+    {% for user in users %}
+      {% if user.id != session.userId %}
+        <article class="card-dash-user">
+          <header class="card-dash-user-header">
+            <h2>{{user.name}}</h2>
+            <span>{{user.email}}</span>
+          </header>
+          <div class="card-actions-user">
+            <a href="/dashboard/users/{{user.id}}/edit" class="view-recipe">Editar</a>
+            <a 
+              class="open-modal" 
+              data-name="{{user.name}}" 
+              data-id="{{user.id}}" 
+            >
+              Remover
+            </a>
+          </div>
+        </article>
+      {% else %}
+        <article class="card-dash-user">
+          <a href="/dashboard/users/profile" class="my-account">
+            <i class="material-icons">account_circle</i>
+            <span>Minha conta</span>
+          </a>
+        </article>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  <div class="modal-overlay" id="modal-confirmation">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Confirmação</h3>
+        <span class="modal-header-close close" id="modal-close">
+          <i class="material-icons" title="Fechar">close</i>
+        </span>
+      </div>
+      <div class="modal-body">
+        <span>
+          <strong>Atenção!</strong> 
+        </span>
+        <p>
+          O usuário <strong id="name-user-delete"></strong>
+          será excluído definitivamente.
+          <br/>
+          Com isso as receitas cadastradas em seu nome também
+          serão excluídas.
+          <strong>Deseja realmente continuar?</strong>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <form action="/dashboard/users?_method=DELETE" method="post">
+          <input type="hidden" name="idUser" value="" id="idUser">
+          <button type="button" class="button light close">Fechar</button>
+          <button type="Submit" class="button primary modal-primary close">Confirmar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="/_cdn/js/modal.js"></script>
+{%endblock content%}

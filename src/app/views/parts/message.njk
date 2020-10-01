@@ -1,0 +1,48 @@
+<div class="message-container {% if error %}
+  error show
+{% elif success %}
+  success show
+{% endif %}">
+  <span>
+    <i class="material-icons close-message">close</i>
+  </span>
+  <p class="message">
+    {% if error %}
+      {{error}}
+    {% elif success %}
+      {{success}}
+    {% endif %}
+  </p>
+</div>
+
+<script>
+  const close = document.querySelector('.close-message');
+  const container = document.querySelector('.message-container');
+
+  close.addEventListener('click', () => {
+    container
+      .classList
+      .toggle('show');
+    if (container.classList.contains('error')) {
+      container
+        .classList
+        .toggle('error');
+    }
+    if (container.classList.contains('success')) {
+      container
+        .classList
+        .toggle('success');
+    }
+  });
+
+  function closeMessage() {
+    container.classList.remove('show');
+    if (container.classList.contains('error')) {
+      container.classList.remove('error');
+    } 
+    if (container.classList.contains('success')) {
+      container.classList.remove('success');
+    }
+  }
+  setInterval(closeMessage, 5000);
+</script>

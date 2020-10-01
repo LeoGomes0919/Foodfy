@@ -1,0 +1,30 @@
+{% extends 'site/layout.njk' %}
+
+{% block head %}
+  <title>Foodfy | Receitas</title>
+{% endblock head %}
+
+{% block filterPage %}
+  <div class="site-filter">
+    <form action="/recipes" method="get">
+      {% include "site/parts/filterPage.njk" %}
+    </form>
+  </div>
+{% endblock filterPage %}
+
+{% block contentHeader %}
+  <i class="material-icons">find_in_page</i>
+  {% if q %}
+    <h1>Buscando por "{{q}}..."</h1>
+  {% else %}
+    <h1>Nossas Receitas</h1>
+  {% endif %}
+{% endblock contentHeader %}
+
+{% block pagination %}
+  {% include 'parts/pagination.njk' %}
+{% endblock pagination %}
+
+{% block content %}
+  {% include 'site/parts/list_recipes.njk' %}
+{% endblock content %}

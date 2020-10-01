@@ -1,0 +1,23 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Dashboard | Novo Chef</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">person_add_alt_1</i>
+    Criando Chef
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  <button type="submit" class="button primary" form="chef-form">Salvar</button>
+{% endblock contentActions %}
+
+{% block content %}
+  <form 
+    action="/dashboard/chefs" method="post" id="chef-form" enctype="multipart/form-data">
+    {%include 'dashboard/chefs/parts/fields.njk'%}
+  </form>
+{% endblock content %}

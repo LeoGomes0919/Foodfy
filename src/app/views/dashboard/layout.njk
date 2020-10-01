@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/_cdn/css/reset.css">
+    <link rel="stylesheet" href="/_cdn/css/login.css">
+    <link rel="stylesheet" href="/_cdn/css/dashboard.css">
+    <link rel="stylesheet" href="/_cdn/css/forms.css">
+    <link rel="stylesheet" href="/_cdn/css/messages.css">
+    <link rel="stylesheet" href="/_cdn/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    {% block head %}
+      <title>Foodfy | Dashboard</title>
+    {% endblock head %}
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="dash-mobile-menu" onclick="ActiveMenuMobile.handleTogglePrimaryMenu()">
+        <span class="dash-hamburger"></span>
+      </div>
+      <div class="main-header-content">
+        <a href="/dashboard/recipes" class="logo">
+          <img src="/assets/images/logo-white.png" alt="Logo" title="Logo">
+        </a>
+
+        <nav class="menu dash-menu">
+          <ul>
+            <li>
+              <a href="/dashboard/recipes">RECEITAS</a>
+            </li>
+            <li>
+              <a href="/dashboard/chefs">CHEFS</a>
+            </li>
+            {% if session.isAdmin %}
+              <li>
+                <a href="/dashboard/users">USUÁRIOS</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+
+      <div class="menu-user">
+        <li class="name-menu-user">
+          <a class="user-name" onclick="ActiveMenuMobile.handleToggleMenu()">
+            {{session.userName.toUpperCase()}}
+          </a>
+          <div class="overlay-menu" onclick="ActiveMenuMobile.handleOverlayToggle()">
+            <ul class="dropdown-submenu">
+              <li>
+                <a href="/dashboard/users/profile">
+                  <i class="material-icons">account_circle</i>
+                  Minha conta
+                </a>
+              </li>
+              <li>
+                <a href="/dashboard/users/profile/my-recipes">
+                  <i class="material-icons">article</i>
+                  Minhas receitas
+                </a>
+              </li>
+              <li>
+                <form action="/logout" method="post">
+                  <button>
+                    <i class="material-icons">exit_to_app</i>
+                    Sair</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </div>
+    </header>
+
+    {% include 'parts/message.njk' %}
+
+    <main class="dash-main">
+      <section class="dash-main-content">
+        <header class="dash-main-content-header">
+          {% block contentHeader %}{% endblock contentHeader %}
+          {% block contentActions %}{% endblock contentActions %}
+        </header>
+        {% block filter %}{% endblock filter %}
+        {% block pagination %}{% endblock pagination %}
+
+        {% block content %}{% endblock content %}
+      </section>
+    </main>
+    <footer>
+      <span>Todos os direitos reservados, receitas Foodfy</span>
+    </footer>
+    <script src="/_cdn/js/scripts.js"></script>
+    <script src="/_cdn/js/dashboard.js"></script>
+    <script src="/_cdn/js/pagination.js"></script>
+    <script src="/_cdn/js/photo_upload.js"></script>
+    <script src="/_cdn/js/select_box.js"></script>
+    <script src="/_cdn/js/add_input.js"></script>
+  </body>
+</html>

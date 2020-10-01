@@ -1,0 +1,33 @@
+{% if q != '' and recipes.length <= 0 %}
+    <div class="message-isempty">
+      <span>
+        Sem registro para sua pesquisa...
+        <i class="material-icons">edit</i>
+      </span>
+    </div>
+  {% else %}
+    {% if recipes.length <= 0 %}
+      <div class="message-isempty">
+        <span>
+          Ainda não há receitas cadastradas...
+          <i class="material-icons">edit</i>
+        </span>
+      </div>
+    {% else %}
+      <div class="cards-recipes-site">
+        {% for recipe in recipes %}
+          <article class="card-recipe">
+            <a href="/recipes/{{recipe.id}}" class="link-recipe">
+              <img 
+                src="{{recipe.files[0].path.replace('public', '')}}" 
+                alt="{{recipe.title}}" 
+                title="{{recipe.title}}"
+              >
+            </a>
+            <h2>{{recipe.title}}</h2>
+            <span>por {{recipe.chefs.name}}</span>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endif %}

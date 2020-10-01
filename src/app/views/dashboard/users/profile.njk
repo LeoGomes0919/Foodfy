@@ -1,0 +1,74 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Foodfy | Minha conta</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">account_circle</i>
+    <span>Bem vindo 
+      <b class="profile-name">
+        {{user.name}}
+      </b>
+    </span>
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  <button type="submit" class="button primary" form="profile-form">Salvar</button>
+{% endblock contentActions %}
+
+{% block content %}
+   <form action="/dashboard/users/profile?_method=PUT" method="post" id="profile-form">
+     <input type="hidden" name="id" value="{{user.id}}">
+     <div class="form-container-user">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input 
+            type="text" 
+            name="name" 
+            id="name" 
+            class="input" 
+            value="{{user.name}}"
+            placeholder="Digite o nome completo"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            name="email" 
+            id="email" 
+            value="{{user.email}}"
+            class="input" 
+            placeholder="Digite o email"
+          >
+        </div>
+
+        <div class="form-group password-container">
+          <label for="password">Senha</label>
+          <input 
+            type="password" 
+            autocomplete="on"
+            class="input password" 
+            name="password" 
+            id="password" 
+            placeholder="Digite a senha"
+          >
+          <i 
+            class="material-icons show-hidden-password" 
+            onclick="VisibilityAndHiddenPassword.handleClickIconInput()"
+          >
+            visibility
+          </i>
+        </div>
+      </div>
+   </form>
+   <script>
+      let unformattedName = document.querySelector('.profile-name');
+      const updated = unformattedName.innerHTML.match(/[a-z]{1,20}/i);
+      unformattedName.innerHTML = updated[0];
+   </script>
+{% endblock content %}

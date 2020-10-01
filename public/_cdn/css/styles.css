@@ -1,0 +1,385 @@
+.dash-active-menu-item {
+  color: rgb(255, 255, 255) !important;
+}
+
+.site-active-menu-item {
+  font-weight: 700 !important;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.scroll {
+  overflow: auto !important;
+  height: 168px;
+}
+
+.message-isempty {
+  display: flex;
+  width: 100%;
+  flex-basis: 100%;
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.message-isempty span {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #333;
+}
+
+.message-isempty span i {
+  font-size: 16px;
+}
+
+/* SCROLL PERSONALIZADO */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7469c9;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--roxo);
+}
+
+/* DETALHES DA RECEITA */
+.recipe-info {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.recipe-info header img {
+  width: 100%;
+  max-height: 320px;
+  height: 100%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  object-fit: cover;
+}
+
+.recipe-info .recipe-details {
+  margin: 8px 0 30px 0;
+}
+
+.recipe-info .recipe-details h2 {
+  font-size: 36px;
+  line-height: 46px;
+  color: var(--black);
+}
+
+.recipe-info .recipe-details span {
+  font-size: 20px;
+  line-height: 30px;
+  color: #777;
+}
+
+.recipe-contenet-info {
+  margin-bottom: 100px;
+}
+
+.recipe-contenet-info .recipe-detail {
+  margin-bottom: 40px;
+}
+
+.recipe-detail header {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+.recipe-detail header h3 {
+  font-size: 24px;
+  line-height: 34px;
+  color: var(--black);
+}
+
+.recipe-detail header span {
+  color: #999;
+  font-size: 12px;
+  line-height: 14px;
+  cursor: pointer;
+  padding: 0px 8px;
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.recipe-detail header span:hover {
+  opacity: 0.7;
+}
+
+.recipe-detail p {
+  font-size: 18px;
+  line-height: 28px;
+  color: #444;
+}
+
+.recipe-gallery {
+  width: 100%;
+  height: 49.7px;
+  display: flex;
+  margin-top: 4px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.recipe-gallery img {
+  max-width: 100%;
+  width: 50px;
+  height: 49.7px;
+  object-fit: cover;
+  border-radius: 3.5px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 200ms;
+}
+
+.recipe-gallery img:last-child {
+  margin: 0;
+}
+
+.recipe-gallery img:hover,
+.recipe-gallery img.active {
+  opacity: 1;
+}
+
+/* STILO DA PÁGINAÇÃO */
+.pagination {
+  display: flex;
+  flex-basis: 100%;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination a {
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.pagination a:hover:not(.active-pagination) {
+  background-color: #ddd;
+}
+
+.active-pagination {
+  background: var(--roxo);
+  color: #fff !important;
+}
+
+/* MENSSAGEN PARA REGISTROS NÃO ENCONTRADOS */
+.access-diened {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.access-diened h1 {
+  color: var(--red);
+  font-size: 48px;
+  line-height: 42px;
+  padding-bottom: 24px;
+}
+
+.access-diened span {
+  font-size: 24px;
+  color: var(--black);
+  font-weight: bold;
+  text-align: center;
+}
+
+.access-diened i {
+  color: #666;
+  font-size: 98px;
+}
+
+/* MODAL CONFIRMAÇÃO */
+.modal-overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10003;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.modal-overlay .modal {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+  margin: 1rem;
+  width: 100%;
+  background: #fff;
+}
+
+.modal .modal-header {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal .modal-header h3 {
+  font-weight: 500;
+  font-size: 1.25em;
+}
+
+.modal .modal-header span i {
+  font-size: 1.2em;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.modal .modal-header span i:hover {
+  opacity: 1;
+}
+
+.modal .modal-body {
+  padding: 16px;
+}
+
+.modal .modal-body p {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.modal .modal-footer {
+  padding: 16px;
+  display: flex;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal .modal-footer form {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.modal .modal-footer form .light {
+  margin-right: 0.25rem;
+}
+
+.modal .modal-footer form .primary {
+  margin-left: 0.25rem;
+}
+
+@media (min-width: 576px) {
+  .modal-overlay .modal {
+    max-width: 500px;
+    margin: 1.75rem auto;
+  }
+}
+
+@-webkit-keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.modal-overlay.fade .modal {
+  animation: show 0.5s;
+}
+
+.show-modal {
+  display: flex;
+}
+
+/* FOOTER */
+footer {
+  margin-top: auto;
+  width: 100%;
+  background: #eee;
+  padding: 23px 0;
+  text-align: center;
+}
+
+footer span {
+  font-size: 14px;
+  line-height: 24px;
+  color: #999;
+}
+
+/* MENU MOBILE */
+/* PARTES RESPONSIVAS SITE/DASHBOARD */
+/* 720px */
+@media (max-width: 45em) {
+  .recipe-info header img {
+    height: 200px;
+    transition: var(--cubic);
+  }
+
+  .recipe-info .recipe-details h2 {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .recipe-info .recipe-details span {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+/* 480px */
+@media (max-width: 30em) {
+  .dash-main-content-header h1 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .recipe-info header img {
+    height: 160px;
+    transition: var(--cubic);
+  }
+
+  .recipe-detail header h3 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}

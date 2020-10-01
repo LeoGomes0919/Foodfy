@@ -1,0 +1,39 @@
+{% extends 'dashboard/layout.njk' %}
+
+{% block head %}
+  <title>Dashboard | Chefs</title>
+{% endblock head %}
+
+{% block contentHeader %}
+  <h1>
+    <i class="material-icons">assignment_ind</i>
+    Gerenciar Chefs
+  </h1>
+{% endblock contentHeader %}
+
+{% block contentActions %}
+  {% if session.isAdmin %}
+    <a href="/dashboard/chefs/create" class="button primary">Novo</a>
+  {% endif %}
+{% endblock contentActions %}
+
+{% block content %}
+  {% if chefs.length <= 0 %}
+    <div class="message-isempty">
+      <span>
+        Ainda não há chefs cadastrados...
+        <i class="material-icons">edit</i>
+      </span>
+    </div>
+    {%else%}
+    {% for chef in chefs %}
+      <article class="card-dash-chef">
+        <img src="{{chef.files.path.replace('public', '')}}" alt="{{chef.name}}" title="{{chef.name}}">
+        <div class="card-chef-details">
+          <h2>{{chef.name}}</h2>
+          <a href="/dashboard/chefs/{{chef.id}}" class="view-recipe">Visualizar</a>
+        </div>
+      </article>
+    {% endfor %}
+  {% endif %}
+{% endblock content %}

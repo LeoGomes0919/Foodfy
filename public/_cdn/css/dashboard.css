@@ -1,0 +1,1073 @@
+/* HEADER E MENU */
+.main-header {
+  width: 100%;
+  background: var(--black);
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-header .main-header-content {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.main-header-content .logo {
+  flex-basis: 131px;
+  padding: 20px;
+  width: 91px;
+}
+
+.main-header-content .dash-menu {
+  flex-basis: calc(100% - 131px);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dash-menu ul {
+  display: flex;
+  align-items: stretch;
+}
+
+.dash-menu ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.dash-menu ul li a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 30px;
+  color: #999;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.dash-menu ul li a:hover {
+  color: #fff;
+  transition: all 200ms;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* MENU DA CONTA DO USUÁRIO LOGADO */
+.overlay-menu {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: none;
+  top: 70px;
+  z-index: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-header .menu-user {
+  position: absolute;
+  z-index: 1001;
+  right: 20px;
+  top: 35%;
+}
+
+.menu-user .name-menu-user {
+  position: fixed;
+  right: 20px;
+  list-style: none;
+}
+
+.name-menu-user > a {
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.name-menu-user .dropdown-submenu {
+  position: absolute;
+  background: rgb(32, 32, 36);
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 5px 20px;
+  float: left;
+  width: 256px;
+  padding: 4px 0;
+  right: 18px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  display: none;
+}
+
+.name-menu-user .dropdown-submenu::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid rgb(32, 32, 36);
+}
+
+.dropdown-submenu li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.dropdown-submenu li:hover {
+  background-color: rgba(0, 0, 0, 0.125);
+  transition: background-color 0.3s;
+}
+
+.dropdown-submenu li a,
+.dropdown-submenu li button {
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  font-size: 16px;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  padding: 12px 24px;
+}
+
+.dropdown-submenu li button {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: transparent;
+}
+
+.dropdown-submenu li a:hover,
+.dropdown-submenu li button:hover {
+  color: #fff;
+}
+
+.dropdown-submenu li a i,
+.dropdown-submenu li button i {
+  margin-right: 24px;
+  color: var(--roxo);
+}
+
+.dropdown-submenu.active-menu,
+.overly-visible {
+  display: block;
+}
+
+/* MAIN DASH RECEITAS */
+.dash-main {
+  max-width: 980px;
+  width: 100%;
+  margin: 50px auto 0 auto;
+  padding: 0 16px;
+}
+
+.dash-main .dash-main-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dash-main-content .dash-main-content-header {
+  display: flex;
+  flex-basis: 100%;
+  padding: 60px 0 20px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dash-main-content-header h1 {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  line-height: 34px;
+  color: var(--black);
+}
+
+.dash-main-content-header h1 > i {
+  padding-right: 4px;
+}
+
+.dash-main-content-header .container-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px 16px;
+  grid-template-areas: "... buttonPrimary";
+}
+
+.container-actions button.primary {
+  grid-area: buttonPrimary;
+}
+
+.dash-main-content .filter-dash {
+  flex-basis: 100%;
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  gap: 16px;
+}
+
+.filter-dash input {
+  padding: 0px 16px
+}
+
+.filter-dash button {
+  height: initial;
+}
+
+.dash-main-content .card-dash-recipe {
+  flex-basis: 50%;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.card-dash-recipe img {
+  min-width: 10.75rem;
+  max-height: 5.875rem;
+  height: 100%;
+  width: 100%;
+  border-radius: 8.57px;
+  -webkit-border-radius: 8.57px;
+  -moz-border-radius: 8.57px;
+}
+
+.card-dash-recipe .card-recipe-details {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 20px;
+  flex-basis: 100%;
+}
+
+.card-dash-recipe .card-recipe-details h2 {
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--black);
+  font-weight: 400;
+}
+
+.card-dash-recipe .card-recipe-details span {
+  font-size: 14px;
+  line-height: 24px;
+  color: #777;
+}
+
+.card-dash-recipe .card-recipe-details a {
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--roxo);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.card-dash-recipe .card-recipe-details a:hover {
+  opacity: 0.8;
+  transition: opacity 200ms;
+}
+
+/* MAIN DASH CHEFS */
+.dash-main-content .card-dash-chef {
+  flex-basis: 25%;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.card-dash-chef img {
+  max-width: 64px;
+  width: 100%;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+.card-dash-chef .card-chef-details {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 20px;
+}
+
+.card-dash-chef .card-chef-details h2 {
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--black);
+  font-weight: 400;
+}
+
+.card-dash-chef .card-chef-details a {
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--roxo);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.card-dash-chef .card-chef-details a:hover {
+  opacity: 0.8;
+  transition: opacity 200ms;
+}
+
+/* MAIN DASH USUÁRIOS */
+.dash-main-content .card-dash-user {
+  flex-basis: 33%;
+  margin-bottom: 52px;
+}
+
+.card-dash-user .card-dash-user-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-dash-user-header h2 {
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--black);
+  font-weight: 400;
+}
+
+.card-dash-user-header span {
+  font-size: 14px;
+  line-height: 24px;
+  color: #777;
+}
+
+.card-dash-user .card-actions-user {
+  display: flex;
+  padding: 16px 0 0 0;
+}
+
+.card-actions-user a {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.card-actions-user a:hover {
+  opacity: 0.8;
+  transition: opacity 200ms;
+}
+
+.card-actions-user a:first-child {
+  padding-right: 16px;
+  color: var(--roxo);
+}
+
+.card-actions-user a:last-child {
+  color: #f55a5a;
+}
+
+.card-dash-user .my-account {
+  border-radius: 4px;
+  background: rgb(32, 32, 36);
+  border: 2px solid rgb(32, 32, 36);
+  padding: 32px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+  font-weight: 400;
+  transition: all 0.2s ease 0s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 200px;
+  width: 100%;
+}
+
+.card-dash-user .my-account:hover {
+  border-color: rgba(101, 88, 195, 0.8);
+  transform: translateY(-7px);
+}
+
+.card-dash-user .my-account > i {
+  margin-right: 8px;
+}
+
+/* FORMULÁRIO DE USUÁRIOS E CHEFS*/
+.dash-main-content .form-container-user {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px 40px;
+}
+
+.form-container-user .form-group,
+.form-container-chef .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container-user .role {
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.form-container-user .role label {
+  order: 1;
+  margin-left: 8px;
+}
+
+.form-container-chef .form-group {
+  padding-bottom: 30px;
+}
+
+/* FORMULÁRIO DE RECEITAS */
+/* ==> UPLOAD DE FOTOS <== */
+.upload {
+  display: flex;
+  margin: 10px 0 0 0;
+}
+
+.photos-upload {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  max-width: 149px;
+  max-height: 149px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  margin-right: 20px;
+  border: 1px solid #ddd;
+  opacity: 1;
+  transition: opacity 200ms;
+  border-radius: 3.5px;
+  -webkit-border-radius: 3.5px;
+  -moz-border-radius: 3.5px;
+}
+
+.photos-upload:hover {
+  opacity: 0.7;
+  transition: opacity 200ms;
+}
+
+.photos-upload .button-upload {
+  width: 149px;
+  height: 149px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.photos-upload #photo-input {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.button-upload i {
+  font-size: 48px;
+  color: #777;
+}
+
+.button-upload::after {
+  content: "Adicione até 5 fotos";
+  font-size: 12px;
+  color: #777;
+}
+
+.form-group .photos-preview {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0px 8px;
+}
+
+.photos-preview img {
+  max-width: 149px;
+  width: 100%;
+  max-height: 149px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3.5px;
+  -webkit-border-radius: 3.5px;
+  -moz-border-radius: 3.5px;
+  cursor: pointer;
+}
+
+.photos-preview .photo {
+  position: relative;
+}
+
+.photos-preview .photo i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #f55a5a;
+  font-size: 400%;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.photos-preview .photo:hover i {
+  opacity: 1;
+}
+
+/* FORMULÁRIO DE CHEFS */
+/* ==> UPLOAD DE FOTOS <== */
+.upload-chef {
+  position: relative;
+}
+.upload-chef .input-file-chef {
+  position: absolute;
+  bottom: 30px;
+  opacity: 0;
+  z-index: 2;
+  padding: 7px 0px;
+  border: 1px solid red;
+  max-width: 130px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.upload-chef span {
+  margin-top: 20px;
+  z-index: 1;
+  max-width: 130px;
+  width: 100%;
+  text-align: center;
+  padding: 9px 0;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  background: var(--roxo);
+  cursor: pointer;
+  color: #fff;
+}
+
+#preview-chef img {
+  max-width: 200px;
+  max-height: 200px;
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* DETALHES DOS CHEFS E USUÁRIOS*/
+.chef-info,
+.user-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+.chef-info header,
+.user-info header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.chef-info header img,
+.user-info header .avatar-user {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+  background: var(--roxo);
+}
+
+.user-info header .avatar-user i {
+  font-size: 220px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.chef-info .chef-details h2,
+.user-info .user-details h2 {
+  font-size: 36px;
+  line-height: 46px;
+  color: var(--black);
+}
+
+.chef-info .chef-details span,
+.user-info .user-details span {
+  font-size: 20px;
+  color: #777;
+  font-weight: 400;
+}
+
+.chef-recipes {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  flex-basis: 100%;
+}
+
+.chef-recipes header {
+  flex-basis: 100%;
+  margin-bottom: 30px;
+}
+
+.chef-recipes header h2 {
+  font-size: 24px;
+  line-height: 34px;
+  color: var(--black);
+}
+
+.preview-edit-avatar {
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+.preview-edit-avatar li img {
+  max-height: 30px;
+  margin-top: 4px;
+  height: 100%;
+  cursor: pointer;
+  transition: all 800ms;
+}
+
+.preview-edit-avatar li img:hover {
+  transform: scale(6);
+}
+
+/* SELECT BOX CHEF DO FORMULÁRIO */
+.form-group .select-box {
+  position: relative;
+}
+
+.form-group .select-box::before {
+  font-family: "Material Icons";
+  content: "keyboard_arrow_down";
+  position: absolute;
+  font-size: 20px;
+  color: #999;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+/* CONTAINER BUTTON ADD INPUT DE RECEITAS */
+.btn-more-input {
+  margin: -31px 0 30px 0;
+}
+
+.dropdown > i {
+  display: none;
+}
+
+/* LAYOUT DASHBOARD RESPONSIVO */
+/* 1200px */
+@media (max-width: 75em) {
+  .preview-edit-avatar > li {
+    font-size: 16px;
+  }
+
+  .preview-edit-avatar li img:hover {
+    transform: scale(1);
+  }
+}
+
+/* 900px */
+@media (max-width: 56.25em) {
+  /* UPLOAD DE FOTOS PARA RECEITA */
+  .photos-upload {
+    max-width: 129px;
+    max-height: 129px;
+    transition: var(--cubic);
+  }
+
+  .photos-upload .button-upload {
+    width: 100%;
+    height: 129px;
+    transition: var(--cubic);
+  }
+
+  .button-upload::after {
+    font-size: 10px;
+    transition: var(--cubic);
+  }
+
+  /* CARDS DE CHEFS */
+  .dash-main-content .card-dash-chef {
+    flex-basis: 33.33%;
+    transition: var(--cubic);
+  }
+}
+
+/* 768px */
+@media (max-width: 50em) {
+  /* MENU DA DASHBOARD MOBILE */
+  .main-header .main-header-content {
+    position: relative;
+    left: 42%;
+  }
+
+  .main-header .menu-user {
+    top: 13px;
+  }
+
+  .menu-user .name-menu-user {
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background: var(--roxo);
+    cursor: pointer;
+    transition: all 200ms;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .name-menu-user .user-name {
+    font-size: 18px;
+  }
+
+  .main-header .dash-mobile-menu {
+    width: 44px;
+    position: fixed;
+    height: 40px;
+    left: 20px;
+    top: 16px;
+    cursor: pointer;
+  }
+
+  .dash-mobile-menu .dash-hamburger {
+    width: 26px;
+    cursor: pointer;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    transition: 0.5s;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    top: 10px;
+    left: 0;
+  }
+
+  .dash-mobile-menu .dash-hamburger::before {
+    top: 8px;
+    width: 26px;
+    left: 8px;
+  }
+
+  .dash-mobile-menu .dash-hamburger::after {
+    top: 16px;
+    left: 16px;
+    width: 26px;
+  }
+
+  .dash-mobile-menu .dash-hamburger::before,
+  .dash-mobile-menu .dash-hamburger::after {
+    content: "";
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+  }
+
+  .main-header-content .dash-menu {
+    width: 100%;
+    left: 0;
+    height: auto;
+    background: rgb(32, 32, 36);
+    border-radius: 0px 0px 4px 0px;
+    position: fixed;
+    top: 70px;
+    z-index: 1002;
+    display: none;
+    transition: height 1s;
+    box-shadow: rgba(0, 0, 0, 0.44) 0px 5px 20px;
+  }
+
+  .main-header-content .dash-menu.active-menu {
+    display: block;
+  }
+
+  .main-header-content .dash-menu ul {
+    display: block;
+    width: 100%;
+  }
+
+  .main-header-content .dash-menu ul li {
+    padding: 8px 0px;
+    width: 100%;
+  }
+
+  .main-header-content .dash-menu ul li:hover {
+    background-color: rgba(0, 0, 0, 0.125);
+    transition: background-color 0.3s;
+  }
+
+  .main-header-content .dash-menu ul li a {
+    width: 100%;
+  }
+
+  /* FORMULÁRIO DO PERFIL */
+  .dash-main-content .form-container-user {
+    gap: 0px 22px;
+  }
+
+  /* LISTA DE USUÁRIOS */
+  .dash-main-content .card-dash-user {
+    flex-basis: 50%;
+    transition: var(--cubic);
+  }
+
+  /* UPLOAD DE FOTOS PARA RECEITAS */
+  .photos-upload {
+    max-width: 109px;
+    max-height: 109px;
+  }
+
+  .photos-upload .button-upload {
+    width: 100%;
+    height: 109px;
+  }
+
+  /* CARD DE CHEFS */
+  .dash-main-content .card-dash-chef {
+    flex-direction: column;
+  }
+
+  .card-dash-chef .card-chef-details {
+    padding: 4px 0px 0px 0px;
+  }
+}
+
+/* 720px */
+@media (max-width: 45em) {
+  /* CARDS DAS RECEITAS */
+  .dash-main-content .card-dash-recipe {
+    flex-direction: column;
+    flex-basis: 50%;
+    padding-right: 16px;
+    transition: all 0.9s linear;
+  }
+
+  .dash-main-content .card-dash-recipe:nth-child(2n + 1) {
+    padding-right: 0px;
+  }
+
+  .card-dash-recipe img {
+    width: 100%;
+    max-height: 100px;
+    height: 100%;
+  }
+
+  .card-dash-recipe .card-recipe-details {
+    align-items: flex-start;
+    padding: 8px 0px 0px 0px;
+  }
+
+  /* FORMULÁRIO DO PERFIL */
+  .dash-main-content .form-container-user {
+    grid-template-columns: 1fr;
+  }
+
+  /* UPLOAD DE FOTOS PARA RECEITA */
+  .photos-upload {
+    max-width: 89px;
+    max-height: 89px;
+  }
+
+  .photos-upload .button-upload {
+    width: 100%;
+    height: 89px;
+  }
+
+  .button-upload i {
+    font-size: 38px;
+  }
+
+  .button-upload::after {
+    font-size: 9px;
+  }
+
+  /* CARD DE CHEFS */
+  .dash-main-content .card-dash-chef {
+    flex-basis: 50%;
+  }
+
+  .card-dash-chef .card-chef-details h2 {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+/* 480px */
+@media (max-width: 30em) {
+  /* CARDS DAS RECEITAS */
+  .dash-main-content .card-dash-recipe {
+    flex-basis: 100%;
+    padding-right: 0px;
+    transition: var(--cubic);
+  }
+
+  .card-dash-recipe img {
+    max-height: 150px;
+    height: 100%;
+  }
+
+  /* MEU DASHBOARD MOBILE */
+  .main-header .main-header-content {
+    left: 30%;
+  }
+
+  .name-menu-user .user-name {
+    font-size: 16px;
+  }
+
+  .dash-mobile-menu .dash-hamburger,
+  .dash-mobile-menu .dash-hamburger::before,
+  .dash-mobile-menu .dash-hamburger::after {
+    width: 22px;
+  }
+
+  /* FORMULÁRIO DO PERFIL */
+  .dash-main-content .dash-main-content-header {
+    flex-wrap: wrap;
+  }
+
+  .dash-main-content-header h1 {
+    font-size: 16px;
+    line-height: 26px;
+    padding-bottom: 8px;
+    transition: all 0.5s linear;
+  }
+
+  /* LISTA DE USUÁRIOS */
+  .dash-main-content .card-dash-user {
+    flex-basis: 100%;
+    transition: var(--cubic);
+  }
+
+  /* FORMULÁRIO DE USUÁRIOS */
+  .dash-main-content-header .container-actions {
+    display: none;
+    position: absolute;
+    background: #fff;
+    overflow: auto;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 15px;
+    padding: 20px 16px;
+  }
+
+  .dash-main-content-header .container-actions button,
+  .dash-main-content-header .container-actions a {
+    padding: 4px 16px;
+    width: 100%;
+  }
+
+  .dash-main-content-header .container-actions.show {
+    display: grid;
+  }
+
+  .dropdown {
+    padding: 4px;
+    cursor: pointer;
+    position: relative;
+    right: -15px;
+    transition: background-color 0.5s linear;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+  }
+
+  .dropdown:active {
+    background-color: rgba(0, 0, 0, 0.125);
+  }
+
+  .dropdown > i {
+    font-size: 32px;
+    display: block;
+  }
+
+  /* FORMULÁRIO DE RECEITAS */
+  .photos-upload {
+    max-width: 69px;
+    max-height: 69px;
+  }
+
+  .photos-upload .button-upload {
+    width: 100%;
+    height: 69px;
+  }
+
+  .button-upload i {
+    font-size: 28px;
+  }
+
+  .button-upload::after {
+    font-size: 6px;
+    font-weight: 700;
+  }
+
+  /* CARD DE CHEFS */
+  .dash-main-content .card-dash-chef {
+    flex-basis: 100%;
+  }
+
+  .card-dash-chef .card-chef-details h2 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+/* 320px */
+@media (max-width: 20em) {
+  .photos-upload {
+    max-width: 49px;
+    max-height: 49px;
+  }
+
+  .photos-upload .button-upload {
+    width: 100%;
+    height: 49px;
+  }
+
+  .button-upload i {
+    font-size: 18px;
+  }
+
+  .button-upload::after {
+    font-size: 5px;
+    font-weight: 700;
+  }
+}
