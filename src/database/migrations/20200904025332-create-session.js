@@ -4,7 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Session', {
       sid: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.TEXT,
         primaryKey: true,
         allowNull: false
       },

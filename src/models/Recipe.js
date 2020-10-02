@@ -4,8 +4,8 @@ class Recipe extends Model {
   static init(sequelize) {
     super.init({
       title: DataTypes.TEXT,
-      ingredients: DataTypes.TEXT,
-      preparation: DataTypes.TEXT,
+      ingredients: DataTypes.ARRAY(DataTypes.TEXT),
+      preparation: DataTypes.ARRAY(DataTypes.TEXT),
       information: DataTypes.TEXT,
     }, {
       sequelize
