@@ -1,9 +1,9 @@
 module.exports = {
   dialect: 'postgres',
-  host: 'localhost',
-  username: 'postgres',
-  password: '1234',
-  database: 'Foodfy',
+  host: 'balarama.db.elephantsql.com',
+  username: 'kpmscsoh',
+  password: 'gnXc49STGiXCuzbVLrZtkp96E2qNDrLF',
+  database: 'kpmscsoh',
   define: {
     timestamps: true,
     underscored: true,
