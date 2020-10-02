@@ -46,8 +46,9 @@ Then open the directory in vscode and run the following command to install the p
 ```
 yarn install ou npm install
 ```
-After installing the dependencies, go to the ```src/config``` folder and open the ```database.js``` file and change the credentials of the current database to
+After installing the dependencies, go to the ```src/config``` folder and open the file ```database.js``` and change the credentials of the current database to
 your database credentials.
+Do the same for the ```session.js``` file
 
 Then run the following commands:
 
