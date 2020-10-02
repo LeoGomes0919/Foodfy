@@ -4,9 +4,9 @@ const sequelizeSession = require('connect-session-sequelize')(session.Store)
 const db = require('./database');
 
 const sequelize = new Sequelize(
-  'ddasqhqv0b8092',
-  'fubaapjorqhcph',
-  'bdb52a8a0ad4f36712c10de4385bda4fb9eeda8f03af4b8a20445c24ee31c1c3', {
+  'des647hpi31vq8',
+  'edongdognooiif',
+  '15b86731cac72c7e10d441869437ed078841e05e8bad830ce24980cfbab9a99a', {
   dialect: 'postgres',
   storage: db,
 });
