@@ -3,8 +3,8 @@ const Sequelize = require('sequelize');
 const sequelizeSession = require('connect-session-sequelize')(session.Store)
 const db = require('./database');
 
-const sequelize = new Sequelize('Foodfy', 'postgres', '1234', {
-  dialect: 'postgres',
+const sequelize = new Sequelize('foodfy', 'root-foodfy', '12345678f', {
+  dialect: 'mysql',
   storage: db,
 });
 

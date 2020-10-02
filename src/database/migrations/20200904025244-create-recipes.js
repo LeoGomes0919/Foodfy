@@ -34,12 +34,24 @@ module.exports = {
         allowNull: false,
       },
       ingredients: {
-        type: Sequelize.ARRAY(Sequelize.TEXT),
+        type: Sequelize.TEXT,
         allowNull: false,
+        get() {
+          return this.getDataValue("ingredients").split(";")
+        },
+        set(val) {
+          this.setDataValue("ingredients", val.join(";"));
+        },
       },
       preparation: {
-        type: Sequelize.ARRAY(Sequelize.TEXT),
+        type: Sequelize.TEXT,
         allowNull: false,
+        get() {
+          return this.getDataValue("preparation").split(";")
+        },
+        set(val) {
+          this.setDataValue("preparation", val.join(";"));
+        },
       },
       information: {
         type: Sequelize.TEXT,
