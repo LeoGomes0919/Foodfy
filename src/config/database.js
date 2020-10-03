@@ -1,10 +1,10 @@
 module.exports = {
-  dialect: 'postgres',
-  host: 'localhost',
-  database: 'Foodfy',
-  username: 'postgres',
-  password: '1234',
-  port: 5432,
+  dialect: process.env.DB_DIALECT,
+  host: process.env.DB_HOST_NAME,
+  database: process.env.DB_NAME_TABLE,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
   define: {
     timestamps: true,
     underscored: true,
