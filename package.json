@@ -6,7 +6,9 @@
   "author": "Leonardo Gomes",
   "license": "MIT",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "npm-run-all -p nodemon browsersync",
+    "nodemon": "nodemon",
+    "browsersync": "browser-sync start --proxy http://localhost:5000 --files 'public,src'"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
