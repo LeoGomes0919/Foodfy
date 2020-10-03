@@ -19,7 +19,7 @@
 ## 🕶 Overview
 
 Foodfy is a system developed during the Bootcamp Launchbase. The project focuses on a website for registering recipes, chefs, users having an area for the Dashboard of the application, and another for data presentation, free for all non-registered users.
-See in the [demo](http://foodfy-recipes.umbler.net/)
+See in the [demo](https://foodfy-app.herokuapp.com/)
 
 ## ⛏️ Technologies
 
