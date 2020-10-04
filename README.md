@@ -83,5 +83,9 @@ email: admin@foodfy.com.br
 password: 1234
 ```
 
+### Mailtrap configuration
+
+To send emails we use the MailTrap sending service. After a new registration or even for password recovery, you need to access the ```.env``` file and change the current MailTrap credentials to your MailTrap credentials.
+
 ## 📝 License
 This project is licensed under the MIT [LICENSE](LICENSE) - look at the LICENSE file for more details
