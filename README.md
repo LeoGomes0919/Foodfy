@@ -19,7 +19,8 @@
 ## 🕶 Overview
 
 Foodfy is a system developed during the Bootcamp Launchbase. The project focuses on a website for registering recipes, chefs, users having an area for the Dashboard of the application, and another for data presentation, free for all non-registered users.
-See in the [demo](https://foodfy-app.herokuapp.com/)
+See in the [demo](https://foodfy-app.herokuapp.com/).
+The demonstration was used AWS S3 for storage of uploads, and AWS RDS for storage of the postgreSQL database.
 
 ## ⛏️ Technologies
 
