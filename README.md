@@ -38,7 +38,7 @@ Main technologies of the project:
 
 Select a local directory on your machine to clone the project, then clone the project by executing the command below:
 ```
-git clone https://github.com/LeoGomes0919/foodfy.git
+https://github.com/LeoGomes0919/Foodfy.git
 ```
 
 ### Initialize the project
